@@ -46,4 +46,4 @@ jobs:
       shell: cmd
 
     - name: Build with vcpkg
-      run: msbuild /m /p:Configuration=Release /p:VcpkgRoot=${{ github.workspace }}\vcpkg ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=Release /p:VcpkgTriplet=x64-windows /p:VcpkgRoot=${{ github.workspace }}\vcpkg ${{env.SOLUTION_FILE_PATH}}
