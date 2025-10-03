@@ -46,5 +46,9 @@ jobs:
       run: .\vcpkg\vcpkg.exe install --triplet x64-windows
       shell: cmd
 
+    - name: List vcpkg include directory
+      run: dir vcpkg_installed\x64-windows\include
+      shell: cmd
+
     - name: Build with vcpkg
       run: msbuild /m /p:Configuration=Release ${{env.SOLUTION_FILE_PATH}}
