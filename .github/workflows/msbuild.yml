@@ -50,5 +50,6 @@ jobs:
       run: dir vcpkg_installed\x64-windows\include
       shell: cmd
 
-    - name: Build with vcpkg
-      run: msbuild /m /p:Configuration=Release ${{env.SOLUTION_FILE_PATH}}
+    - name: Run MSBuild with vcpkg
+      run: msbuild /m /p:Configuration=Release /p:ForceImportBeforeCppTargets=ci.vcpkg.props ${{env.SOLUTION_FILE_PATH}}
+      shell: cmd
