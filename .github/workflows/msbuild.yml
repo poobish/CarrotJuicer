@@ -58,6 +58,10 @@ jobs:
       run: dir vcpkg_installed\x64-windows\include
       shell: cmd
 
+    - name: List linked libraries
+      run: dir vcpkg_installed\x64-windows\lib
+      shell: cmd
+
     - name: Run MSBuild with vcpkg
       run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:Configuration=Release
       shell: cmd
