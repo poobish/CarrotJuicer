@@ -42,8 +42,16 @@ jobs:
       run: .\vcpkg\bootstrap-vcpkg.bat
       shell: cmd
 
+    - name: Confirm vcpkg.targets exists
+      run: dir vcpkg\scripts\buildsystems\msbuild
+      shell: cmd
+
     - name: Install dependencies from manifest
       run: .\vcpkg\vcpkg.exe install --triplet x64-windows
+      shell: cmd
+
+    - name: Echo VCPKG_ROOT
+      run: echo %VCPKG_ROOT%
       shell: cmd
 
     - name: List vcpkg include directory
